@@ -1,0 +1,33 @@
+<div class="col-md-2 offset-md-4 mt-2">
+    <input type="text" [(ngModel)]="value" class="form-control mb-2">
+<button  (click)=sendToService() class="btn btn-success ms-5">search</button>
+</div>
+<div class="wrapper" >
+    <div class="row">
+        <div class="col-md-3 mt-2 mb-3 ml-1 card h-150" *ngFor="let article of articles">
+            <div class="card bg-warning text-light fw-bold">
+              {{ article.title }}
+            </div>
+            <div class="card-body ">
+                <div class="text-success fw-bold">
+                    AUTHOR: {{ article.author }}
+                </div>
+                <div class="border border-secondary">
+                    <img [src]="article.urlToImage" height="150px" width="100%">
+                </div>
+                <div>
+                    {{article.description}}
+
+                </div>
+
+                <div>
+                    {{article.content}}
+                </div>
+            </div>
+            <div class="card-footer bg-danger fw-bold">
+                {{article.publishedAt | date:"medium"}}
+            </div>
+        </div>
+
+    </div>
+</div>
